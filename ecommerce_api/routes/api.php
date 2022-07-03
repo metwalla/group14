@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use App\Models\Product;
 use App\Http\Controllers\ProductController;
 use Illuminate\Http\Request;
@@ -20,4 +21,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('products', ProductController::class);
+//Public routes
+Route::post('register', [UserController::class, 'register']);
+Route::post('login', [UserController::class, 'login']);
+
+//Protected routes (require user authentication)
+Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::apiResource('products', ProductController::class);
+    Route::post('logout', [UserController::class, 'logout']);
+});
