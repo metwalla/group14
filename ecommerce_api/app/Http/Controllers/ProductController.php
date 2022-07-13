@@ -52,6 +52,11 @@ class ProductController extends Controller
         return new ProductResource($product);
     }
 
+    public function showByCategory($category) {
+        $products = Product::where('category', '=', $category)->get();
+        return ProductResource::collection($products);
+    }
+
     /**
      * Update the specified resource in storage.
      *

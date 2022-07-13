@@ -28,5 +28,6 @@ Route::post('login', [UserController::class, 'login']);
 //Protected routes (require user authentication)
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::apiResource('products', ProductController::class);
+    Route::get('products/category/{category}', [ProductController::class, 'showByCategory']);
     Route::post('logout', [UserController::class, 'logout']);
 });
