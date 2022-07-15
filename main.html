@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Switcher</title>
+    <title>dudeMarket</title>
 
     <style>* {
     margin: 0;
@@ -17,7 +17,7 @@ body {
 }
 
 header {
-    background-color: #FFF;
+    background-color: #239B56;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -82,12 +82,18 @@ main {
 
 .pages .page.is-active {
     display: block;
+.dropdown li + li {
+ margin-top: 10px;
+}
+
 </style>
+
 </head>
 <body>
     <header>
         <nav>
-            <h1>JavaScript Wizard</h1>
+		<img src="file:///C:/Users/UBERHYO/Downloads/logo.PNG">
+            
             <ul class="tabs">
                 <li class="tab is-active">
                     <a data-switcher data-tab="1">Home</a>
@@ -96,10 +102,13 @@ main {
                     <a data-switcher data-tab="2">About</a>
                 </li>
                 <li class="tab">
-                    <a data-switcher data-tab="3">Services</a>
+                    <a data-switcher data-tab="3">Sign up</a>	  
+                </li>
+		<li class="tab">
+                    <a data-switcher data-tab="4">Sign in</a>	  
                 </li>
                 <li class="tab">
-                    <a data-switcher data-tab="4">Contact</a>
+                    <a data-switcher data-tab="5">Contact</a>
                 </li>
             </ul>
         </nav>
@@ -107,20 +116,25 @@ main {
     <main>
         <section class="pages">
             <div class="page is-active" data-page="1">
-                <h2>Page 1</h2>
+                <h2>This is home.</h2>
                 <p>Welcome to the home page</p>
             </div>
             <div class="page" data-page="2">
-                <h2>Page 2</h2>
-                <p>Welcome to the about page</p>
+                <h2>About us</h2>
+                <p></p>
             </div>
             <div class="page" data-page="3">
-                <h2>Page 3</h2>
-                <p>Welcome to the services page</p>
+                <h2>Sign up</h2>
+                <p>This is a sign up page</p>
             </div>
             <div class="page" data-page="4">
-                <h2>Page 4</h2>
-                <p>Welcome to the contact page</p>
+                <h2>Sign in</h2>
+                <p>This is a sign up page</p>
+            </div>
+
+	    <div class="page" data-page="5">
+                <h2>Contact us</h2>
+                <p>This is a contact us page</p>
             </div>
         </section>
     </main>
