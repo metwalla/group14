@@ -66,7 +66,17 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-
+        try {
+            $product = Product::findOrFail($id);
+            $product->update($request->all());
+        }
+        catch(ModelNotFoundException $e) {
+            return response()->json([
+                'error' => 'Product not found.',
+                'detail' => $e->getMessage()
+            ], 404);
+        }
+        return new ProductResource($product);
     }
 
     /**
@@ -77,6 +87,16 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $product = Product::findOrFail($id);
+            $product->delete();
+        }
+        catch(ModelNotFoundException $e) {
+            return response()->json([
+                'error' => 'Product not found.',
+                'detail' => $e->getMessage()
+            ], 404);
+        }
+        return response()->json(null, 204);
     }
 }
